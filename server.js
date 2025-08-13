@@ -10,6 +10,9 @@ let latestContext = null;
 let latestParams = null;
 
 // Main Canvas POST endpoint
+app.get('/', (req, res) => {
+    res.send(`Canvas app is running. Send a POST request with signed_request to interact.`);
+})
 app.post('/', (req, res) => {
     const sr = req.body.signed_request ? parseSignedRequest(req.body.signed_request) : null;
 
